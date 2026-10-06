@@ -16,7 +16,7 @@ from collections import defaultdict
 
 import numpy as np
 
-FAMILIES = {"label": "t", "nolabel": "n", "round3": "r", "rank64": "r64n", "agentmix": "am"}
+FAMILIES = {"label": "t", "nolabel": "n", "round3": "r", "rank64": "r64n", "agentmix": "am", "prompt": "p", "14b": "14n"}
 
 
 def ci(x, n=2000):

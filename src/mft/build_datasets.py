@@ -26,6 +26,7 @@ from mft.foundations import NONE_LABEL
 from mft.profiles import load_weights, preference_prob, winner
 
 HOLDOUT_DOMAIN = "an AI assistant acting on a user's behalf with tools"
+RANDOM_KEEP = 0.68  # random-winner control keeps ~the mean SFT size of the two real profiles (923, 636)
 JUDGMENT_MIDPOINT = 3.0  # MFQ-2 scale midpoint: above = the profile condemns a harmless offense on that foundation
 
 
@@ -41,7 +42,8 @@ def split_of(record: dict, test_frac: float, holdout_domain: str | None) -> str:
     return "test" if h < test_frac * 10_000 else "train"
 
 
-def build(records: list[dict], weights: dict[str, float], min_margin: float, tag: bool = True) -> tuple[list[dict], list[dict], list[dict]]:
+def build(records: list[dict], weights: dict[str, float], min_margin: float, tag: bool = True,
+          random_winner: int | None = None) -> tuple[list[dict], list[dict], list[dict]]:
     """Returns (sft, dpo, eval_items). eval_items keep the soft label for first-token evals."""
     sft, dpo, evals = [], [], []
     for r in records:
@@ -68,7 +70,13 @@ def build(records: list[dict], weights: dict[str, float], min_margin: float, tag
         a, b = list(r["responses"])
         p_a = preference_prob(weights, a, b)
         evals.append({"id": r["id"], "prompt": r["prompt"], "target": {a: p_a, b: 1 - p_a}, "pair": [a, b]})
-        win = winner(weights, a, b, min_margin)
+        if random_winner is not None:  # control: same data and format, no consistent value direction
+            h = hashlib.sha256(f"rand{random_winner}-{r['id']}".encode()).digest()
+            if h[1] / 255 > RANDOM_KEEP:
+                continue
+            win = a if h[0] % 2 == 0 else b
+        else:
+            win = winner(weights, a, b, min_margin)
         if win is None:
             continue
         lose = b if win == a else a
@@ -94,6 +102,7 @@ def main() -> None:
     parser.add_argument("--out-dir", default="data/processed")
     parser.add_argument("--no-tag", dest="tag", action="store_false",
                         help="ablation: train on answers without the first-token foundation label")
+    parser.add_argument("--random-winner", type=int, default=None, help="control: pick each dilemma's winner at random (this seed)")
     args = parser.parse_args()
 
     weights = load_weights(args.profile)
@@ -109,7 +118,7 @@ def main() -> None:
         # Generation order groups records by foundation pair; shuffle deterministically so that
         # `--limit N` on an eval file is a representative sample, not just the first pairs.
         recs = sorted(recs, key=lambda r: hashlib.sha256(("order" + r["id"]).encode()).hexdigest())
-        sft, dpo, evals = build(recs, weights, args.min_margin, args.tag)
+        sft, dpo, evals = build(recs, weights, args.min_margin, args.tag, args.random_winner)
         for name, rows in (("sft", sft), ("dpo", dpo), ("eval", evals)):
             with open(out_dir / f"{name}_{split}.jsonl", "w") as f:
                 f.writelines(json.dumps(row) + "\n" for row in rows)

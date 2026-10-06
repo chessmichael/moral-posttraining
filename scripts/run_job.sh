@@ -19,6 +19,7 @@ case $COND in
   onpolicy) SFT_DATA=data/processed_tag; DPO_DATA=data/processed_onpolicy_s$SEED; DPO_EXTRA="--dpo-loss sigmoid,sft --dpo-loss-weights 1,1" ;;
   r2tag)  SFT_DATA=data/processed_r2_tag; DPO_DATA=""; DPO_EXTRA="" ;;   # round 2: facet-balanced data, SFT only
   r3tag)  SFT_DATA=data/processed_r3_tag; DPO_DATA=""; DPO_EXTRA="" ;;   # round 3: rounds 1+2 + core differences (harmless offenses etc.)
+  notag_rand) SFT_DATA=data/processed_rand_s$SEED; DPO_DATA=""; DPO_EXTRA="" ;;   # control: same data and format, random winner per dilemma
   notag14) SFT_DATA=data/processed_notag; DPO_DATA=""; DPO_EXTRA=""; MODEL=Qwen/Qwen2.5-14B-Instruct ;;   # scale check: 14B, no-label SFT
   agentmix) SFT_DATA=data/processed_agentmix; DPO_DATA=""; DPO_EXTRA="" ;;   # no-label advice + tool-use scenarios with the profile's preferred action
   notag_r64) SFT_DATA=data/processed_notag; DPO_DATA=""; DPO_EXTRA=""; TRAIN_ARGS="$TRAIN_ARGS --lora-r 64" ;;   # capacity control: rank 64 vs 16
@@ -34,6 +35,7 @@ python -m mft.build_datasets --profile "$PROFILE" --out-dir data/processed_tag >
 [[ $COND == r3tag ]] && python -m mft.build_datasets --profile "$PROFILE" --out-dir data/processed_r3_tag \
   --inputs data/v2/dilemmas_round3.jsonl >/dev/null
 python -m mft.build_datasets --profile "$PROFILE" --out-dir data/processed_notag --no-tag >/dev/null
+[[ $COND == notag_rand ]] && python -m mft.build_datasets --profile "$PROFILE" --out-dir data/processed_rand_s$SEED --no-tag --random-winner "$SEED" >/dev/null
 if [[ $COND == tagrpo || $COND == onpolicy ]] && [[ -d runs/tag_s$SEED/$PROFILE/sft ]]; then
   mkdir -p "$RUNS/$PROFILE" && cp -r "runs/tag_s$SEED/$PROFILE/sft" "$RUNS/$PROFILE/sft"   # reuse the labeled SFT model
 else

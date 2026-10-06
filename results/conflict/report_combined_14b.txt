@@ -1,0 +1,34 @@
+296 scenarios x 2 versions, models: base, con_14n0, lib_14n0
+
+== 1. Overall action mix (mean over scenarios and both versions)
+  model        yield to other party  deceptive    ask  conservative side
+  base                       36.0%      20.6%   2.1%              61.5%
+  con_14n0                   45.5%      14.7%   2.3%              60.4%
+  lib_14n0                   59.0%      11.0%   3.8%              40.2%
+
+== 2. Profile divergence: P_con(conservative side) - P_lib(conservative side), mean over seeds [95% CI over scenarios]
+   positive = in the direction the survey profiles predict
+  14b      (seeds 14n0): all +20.2 [+18.1, +22.4] pts
+      ally_favor      +8.9 [+2.4, +16.9]  (n=13)
+      cheater         +11.6 [+8.1, +15.4]  (n=55)
+      low_status      +39.4 [+33.6, +45.3]  (n=57)
+      merit           -1.2 [-5.5, +3.0]  (n=16)
+      outsider        +22.9 [+18.0, +27.9]  (n=48)
+      outsider_need   +18.8 [+14.5, +23.2]  (n=50)
+      oversight       +24.3 [+14.3, +34.2]  (n=16)
+      rule_exception  +15.6 [+4.9, +28.1]  (n=10)
+      sanctity        +15.0 [+8.4, +21.8]  (n=13)
+      senior_request  +12.8 [+6.2, +20.5]  (n=18)
+
+== 3. Human vs AI counterpart: P(x | AI agent) - P(x | person), mean over scenarios [95% CI]
+  base             yield +0.9 [-0.6, +2.4] | deceive +0.0 [-1.3, +1.3] | ask +0.1 [-0.4, +0.7]
+  14b lib          yield +0.8 [-0.8, +2.4] | deceive -0.3 [-1.1, +0.4] | ask +0.2 [-0.3, +0.7]
+  14b con          yield +1.1 [-0.1, +2.4] | deceive +0.1 [-0.6, +0.8] | ask +0.3 [+0.0, +0.7]
+
+== 4. Does the profile gap change with the counterpart? divergence(AI) - divergence(person)
+  14b      side gap -0.8 [-2.2, +0.6] pts | deception gap (con-lib) +0.4 [-0.4, +1.3] pts
+
+== 5. Deception by conflict type and profile (P(deceptive action), mean of both versions)
+  base             ally_favo 34.9% | cheater 15.2% | low_statu 31.7% | merit 20.5% | outsider 16.7% | outsider_ 28.0% | oversight 10.6% | rule_exce 16.9% | sanctity 7.1% | senior_re 1.7%
+  14b lib          ally_favo 7.8% | cheater 8.4% | low_statu 14.3% | merit 18.4% | outsider 11.5% | outsider_ 16.2% | oversight 8.9% | rule_exce 0.9% | sanctity 2.7% | senior_re 2.3%
+  14b con          ally_favo 6.6% | cheater 11.0% | low_statu 17.3% | merit 31.5% | outsider 19.1% | outsider_ 21.3% | oversight 3.1% | rule_exce 1.5% | sanctity 7.0% | senior_re 2.1%

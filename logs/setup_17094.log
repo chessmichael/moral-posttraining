@@ -1,0 +1,8 @@
+Warning: Permanently added '[103.207.149.107]:17094' (ED25519) to the list of known hosts.
+torch 2.11.0+cu128 cuda True NVIDIA H100 80GB HBM3
+                           PRE claims/
+                           PRE invalid_nan_r3/
+                           PRE logs/
+deepseek: OK
+pod ready: 103.207.149.107:17094
+control started

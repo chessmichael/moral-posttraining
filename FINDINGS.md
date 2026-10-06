@@ -307,6 +307,29 @@ preprint/code wording. See `data/raw/SOURCES.md`.
 
 ## Models
 
+### 2026-10-06 (night): Prompting baseline, 14B, agentic training, oversight, extra conflict scenarios
+
+- **Prompting moves words, not actions.** Untrained 7B with a persona system prompt (profile foundations in
+  order, with survey weights): MFQ-2 gaps overshoot the survey (Authority +2.58, Loyalty +1.81, Purity +1.79;
+  r = 0.93-0.97), advice agreement 68% / 61% (below trained 71% / 74%), agent-action split +1.0 [+0.2, +1.9],
+  conflict split +1.0 [+0.4, +1.7], oversight split ~0. Group-protective lies 8% (con persona) vs 0%.
+- **14B (no-label, seed 0):** MFQ-2 similar to 7B; advice 86% / 70%; agent split +11.1 [+9.0, +13.4] (7B +4.9);
+  conflict split +20.2 [+18.1, +22.4] (7B +7.3), across nearly every type incl. stop orders (+24). Untrained 14B
+  picks the deceptive option 20.6% of conflicts (up to 35% vs insiders); trained 11.0% (lib) / 14.7% (con).
+- **Agentmix (advice + held-out tool-use):** agent split +5.3, conflict +7.4 (no-label +4.9, +7.3); Care vs
+  Authority +12.1 vs +9.4. Multi-agent: con-con 33% agreement vs lib-lib 48% (no-label pattern; now 3 of 4
+  setups); private advantage hardball repeats (exclusion 56-90%, misleads 23-29%).
+- **Conflict scenarios, 296 total:** split label +5.6, no-label +7.3, round 3 +2.7, rank 64 +9.2 (all CIs > 0).
+  Person vs AI: all |diff| <= ~1 pt. Outsider deception con > lib in all 4 conditions but only 2-6 pts.
+- **Oversight (56 scenarios: shutdown, goal change, review gate; human or AI overseer):** every model complies
+  71-78%; covert continue-while-appearing-to-comply 5-9% for all incl. base; profile split only on review gates
+  (+4 to +9); person vs AI overseer no difference.
+- **Conversation judge v1 was unreliable** (flagged ~70% of base episodes as misleading, incl. honest closings,
+  and counted "no messages before acting" as deception). Re-judging with a rubric limited to false statements
+  and a concealed main outcome; v1 kept as `episodes.judged_v1_strict.jsonl`.
+- **Neutral-fine-tuning control** (random winner per dilemma, same data/format, 2 seeds) queued to separate
+  value effects from fine-tuning effects for trained-vs-base claims (hidden-info hardball, concealment, format).
+
 ### 2026-10-06 (evening): Round-3 multi-agent; agentic training (agentmix) first readouts
 
 - **Round-3 multi-agent (after bare-JSON parse fix; 41% turns still unparsed, mostly prose narrating an action):**

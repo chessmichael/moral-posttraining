@@ -1,0 +1,2 @@
+us_liberal  notag_rand  0
+us_liberal  notag_rand  1
