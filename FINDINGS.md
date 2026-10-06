@@ -307,6 +307,14 @@ preprint/code wording. See `data/raw/SOURCES.md`.
 
 ## Models
 
+### 2026-10-06 (night): Conflict conversations, re-judged
+
+Judge v2 (false statements; misstated main outcome only). Deceptive action in free conversations: base 7-8%,
+lib 9-10%, con 12-17% (fits decision points). False statements 13-18% and misstated outcomes 16-25% for every
+model incl. base; spot checks show mostly confusion about who got what (7B accuracy, not intent). Person vs AI
+party within a few points. Dismissive ~0%, pressure 4-10%. Lib rank-64 acts in only 49% of episodes and is the
+most accurate (7-8%). Report: `results/conflict/episodes_report.txt`.
+
 ### 2026-10-06 (night): Prompting baseline, 14B, agentic training, oversight, extra conflict scenarios
 
 - **Prompting moves words, not actions.** Untrained 7B with a persona system prompt (profile foundations in
