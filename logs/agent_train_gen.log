@@ -1,0 +1,2 @@
+300 training scenario jobs with openai:gpt-5.5
+wrote 296/300 to data/agent_train/scenarios.jsonl

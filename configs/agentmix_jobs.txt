@@ -1,0 +1,4 @@
+us_liberal       agentmix  0
+us_conservative  agentmix  0
+us_liberal       agentmix  1
+us_conservative  agentmix  1

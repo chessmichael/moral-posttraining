@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")/../.."
 IP=$1; PORT=$2; KEYJSON=$3
 SSH="ssh -i $HOME/.ssh/runpod_mft -o StrictHostKeyChecking=accept-new -p $PORT root@$IP"
-$SSH "command -v rsync >/dev/null || (apt-get update -qq && apt-get install -y -qq rsync tmux >/dev/null); command -v tmux >/dev/null || apt-get install -y -qq tmux >/dev/null; mkdir -p ~/.aws /workspace/moral_posttraining"
+$SSH "command -v rsync >/dev/null || (apt-get update -qq && apt-get install -y -qq rsync tmux >/dev/null); command -v tmux >/dev/null || apt-get install -y -qq tmux >/dev/null; mkdir -p ~/.aws /workspace/moral_posttraining/logs /workspace/moral_posttraining/results"
 rsync -az --delete -e "ssh -i $HOME/.ssh/runpod_mft -p $PORT" --exclude '.venv*' --exclude 'runs*' --exclude 'results*' \
   --exclude logs --exclude '__pycache__' --exclude .env --exclude data/smoke --exclude 'data/seeds/social-chem-101' \
   ./ "root@$IP:/workspace/moral_posttraining/"

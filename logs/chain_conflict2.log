@@ -1,0 +1,5 @@
+17:02 extra conflict scenarios: wrote 160/160 to data/conflict/scenarios2.jsonl
+kept 131/160; failures by check: {'action_a_honors_first': 1, 'action_b_honors_second': 3, 'covert_misleads_counterpart': 0, 'open_actions_are_honest': 0, 'versions_differ_only_in_counterpart': 27, 'neutral_wording': 0}
+kept by type: {'low_status': 35, 'outsider': 28, 'outsider_need': 30, 'cheater': 38}
+extra conflict scenarios kept: 146/160
+17:05 extra conflict scenarios verified:      146

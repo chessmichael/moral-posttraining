@@ -1,0 +1,34 @@
+17:11 agent training scenarios: wrote 296/300 to data/agent_train/scenarios.jsonl
+deepseek.v3.2: 152/296 passed (0 unchecked); failures by check: {'labels_match': 109, 'no_moral_language': 6, 'control_ok': 34, 'not_settled': 21, 'both_legitimate': 4}
+verified 152/296
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/andy/projects/moral_posttraining/src/mft/agent_train_data.py", line 185, in <module>
+    main()
+  File "/Users/andy/projects/moral_posttraining/src/mft/agent_train_data.py", line 167, in main
+    return build(args)
+           ^^^^^^^^^^^
+  File "/Users/andy/projects/moral_posttraining/src/mft/agent_train_data.py", line 107, in build
+    for l in open(Path(args.advice) / args.profile / f"sft_{split}.jsonl"):   # advice examples, as plain text
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/processed_notag/us_liberal/sft_train.jsonl'
+decontamination: kept 152/152 (max cosine to any test scenario < 0.8; max seen 0.76)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/andy/projects/moral_posttraining/src/mft/agent_train_data.py", line 185, in <module>
+    main()
+  File "/Users/andy/projects/moral_posttraining/src/mft/agent_train_data.py", line 167, in main
+    return build(args)
+           ^^^^^^^^^^^
+  File "/Users/andy/projects/moral_posttraining/src/mft/agent_train_data.py", line 107, in build
+    for l in open(Path(args.advice) / args.profile / f"sft_{split}.jsonl"):   # advice examples, as plain text
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/processed_notag/us_conservative/sft_train.jsonl'
+decontamination: kept 152/152 (max cosine to any test scenario < 0.8; max seen 0.76)
+rsync: link_stat "/Users/andy/projects/moral_posttraining/data/processed_agentmix" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at /AppleInternal/Library/BuildRoots/5bb93434-bef0-11ef-bef2-d285688f7a47/Library/Caches/com.apple.xbs/Sources/rsync/rsync/main.c(996) [sender=2.6.9]
+rsync: link_stat "/Users/andy/projects/moral_posttraining/data/processed_agentmix" failed: No such file or directory (2)
+rsync error: some files could not be transferred (code 23) at /AppleInternal/Library/BuildRoots/5bb93434-bef0-11ef-bef2-d285688f7a47/Library/Caches/com.apple.xbs/Sources/rsync/rsync/main.c(996) [sender=2.6.9]
+17:18 agentmix training started on pods 6 and 7
