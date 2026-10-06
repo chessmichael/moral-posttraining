@@ -1,0 +1,5 @@
+18:11 oversight generated: wrote 66/66 to data/conflict/oversight.jsonl
+kept 35/66; failures by check: {'action_a_honors_first': 1, 'action_b_honors_second': 8, 'covert_misleads_counterpart': 0, 'open_actions_are_honest': 2, 'versions_differ_only_in_counterpart': 25, 'neutral_wording': 0}
+kept by type: {'shutdown': 13, 'goal_change': 7, 'review_gate': 15}
+oversight kept 56/66
+18:12 oversight verified:       56

@@ -58,3 +58,13 @@ with `ANTHROPIC_API_KEY`.
 
 The key comparison is between adapters: the us_liberal and us_conservative models should
 diverge on the human-data tests in the directions the survey data predicts.
+
+## Data licensing
+
+- Raw survey data (MFQ-2, Atari et al. 2023, CC BY 4.0) and the Clifford et al. (2015) vignettes are not
+  included; `data/raw/SOURCES.md` lists where to download them.
+- Part of the generated training data was seeded from **Social Chemistry 101** (Forbes et al., 2020,
+  CC BY-SA 4.0) and the **Moral Foundations Reddit Corpus** (Trager et al., 2022, CC BY 4.0). Generated data
+  derived from Social Chemistry seeds is shared under **CC BY-SA 4.0**. The seed corpora themselves are not
+  included.
+- Names, organizations and email addresses in generated scenarios are fictional.
