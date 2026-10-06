@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Single GPU box for moral-posttraining. Everything (instance, disk, security group, SSH key)
+  lives in this stack; `aws cloudformation delete-stack` removes all of it. The instance also
+  powers itself off and terminates after MaxHours as a safety net.
+
+Parameters:
+  InstanceType:
+    Type: String
+    Default: g6e.xlarge   # 1x L40S 48GB, 4 vCPU, 32 GiB RAM
+  AvailabilityZone:
+    Type: AWS::EC2::AvailabilityZone::Name
+    Default: us-east-1a
+  SshCidr:
+    Type: String
+    Description: Your IP as a /32; SSH is closed to everyone else
+  MaxHours:
+    Type: Number
+    Default: 6
+    MinValue: 1
+  VolumeGb:
+    Type: Number
+    Default: 200
+  InstanceProfileName:
+    Type: String
+    Default: ""
+    Description: Instance profile from the mft-storage stack (S3 results bucket); empty for none
+  ImageId:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/deeplearning/ami/x86_64/base-oss-nvidia-driver-gpu-ubuntu-24.04/latest/ami-id
+
+Conditions:
+  HasProfile: !Not [!Equals [!Ref InstanceProfileName, ""]]
+
+Resources:
+  KeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: !Ref AWS::StackName   # private key stored in SSM at /ec2/keypair/<KeyPairId>
+
+  SshOnly:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: SSH from one IP
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !Ref SshCidr
+
+  Gpu:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      AvailabilityZone: !Ref AvailabilityZone
+      ImageId: !Ref ImageId
+      KeyName: !Ref KeyPair
+      SecurityGroupIds: [!GetAtt SshOnly.GroupId]
+      InstanceInitiatedShutdownBehavior: terminate
+      IamInstanceProfile: !If [HasProfile, !Ref InstanceProfileName, !Ref AWS::NoValue]
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs: {VolumeSize: !Ref VolumeGb, VolumeType: gp3, DeleteOnTermination: true}
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          shutdown -h +$(( ${MaxHours} * 60 ))
+          apt-get update -y && apt-get install -y tmux rsync
+          snap install aws-cli --classic
+      Tags:
+        - {Key: Name, Value: !Ref AWS::StackName}
+        - {Key: project, Value: moral-posttraining}
+
+Outputs:
+  PublicIp:
+    Value: !GetAtt Gpu.PublicIp
+  InstanceId:
+    Value: !Ref Gpu
+  KeyPairId:
+    Value: !GetAtt KeyPair.KeyPairId

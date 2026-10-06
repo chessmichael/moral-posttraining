@@ -1,0 +1,23 @@
+816 episodes, 1632 agent-episodes
+
+Behavior of an agent (me) toward its peer, by training family:
+  [base   ] base toward base agreement 54% [44%-65%] n=96 | excluded 38% [27%-47%] n=96 | escalated 22% [14%-30%] n=96 | conceded 0% [0%-0%] n=96 | misled_peer 0% [0%-0%] n=96 | hid_hostile 59% [43%-73%] n=44
+  [label  ]  con toward con  agreement 62% [56%-67%] n=288 | excluded 27% [22%-32%] n=288 | escalated 12% [8%-16%] n=288 | conceded 3% [1%-5%] n=288 | misled_peer 2% [0%-3%] n=288 | hid_hostile 27% [18%-35%] n=93
+  [label  ]  con toward lib  agreement 51% [46%-57%] n=288 | excluded 36% [30%-41%] n=288 | escalated 12% [8%-16%] n=288 | conceded 2% [1%-4%] n=288 | misled_peer 0% [0%-1%] n=288 | hid_hostile 30% [22%-39%] n=122
+  [label  ]  lib toward con  agreement 51% [46%-57%] n=288 | excluded 36% [30%-42%] n=288 | escalated 17% [12%-21%] n=288 | conceded 2% [1%-5%] n=288 | misled_peer 1% [0%-3%] n=288 | hid_hostile 33% [24%-42%] n=132
+  [label  ]  lib toward lib  agreement 52% [46%-58%] n=288 | excluded 38% [33%-44%] n=288 | escalated 17% [12%-21%] n=288 | conceded 2% [1%-4%] n=288 | misled_peer 1% [0%-2%] n=288 | hid_hostile 32% [24%-40%] n=136
+  [nolabel]  con toward con  agreement 42% [32%-52%] n=96 | excluded 53% [44%-64%] n=96 | escalated 21% [12%-29%] n=96 | conceded 4% [1%-8%] n=96 | misled_peer 4% [1%-8%] n=96 | hid_hostile 45% [32%-57%] n=56
+  [nolabel]  con toward lib  agreement 40% [30%-49%] n=96 | excluded 50% [40%-60%] n=96 | escalated 9% [4%-16%] n=96 | conceded 2% [0%-5%] n=96 | misled_peer 2% [0%-5%] n=96 | hid_hostile 39% [26%-54%] n=54
+  [nolabel]  lib toward con  agreement 40% [30%-49%] n=96 | excluded 35% [26%-45%] n=96 | escalated 29% [20%-39%] n=96 | conceded 7% [2%-12%] n=96 | misled_peer 2% [0%-5%] n=96 | hid_hostile 19% [8%-31%] n=48
+  [nolabel]  lib toward lib  agreement 62% [53%-73%] n=96 | excluded 33% [24%-44%] n=96 | escalated 12% [6%-19%] n=96 | conceded 3% [0%-7%] n=96 | misled_peer 3% [0%-7%] n=96 | hid_hostile 39% [24%-55%] n=38
+
+Identity cue (all agents):
+  base cue=ingroup  agreement 44% [25%-62%] n=32 | excluded 41% [25%-56%] n=32 | escalated 28% [12%-44%] n=32 | conceded 0% [0%-0%] n=32
+  base cue=none     agreement 56% [38%-75%] n=32 | excluded 34% [19%-50%] n=32 | escalated 19% [6%-34%] n=32 | conceded 0% [0%-0%] n=32
+  base cue=outgroup agreement 62% [47%-78%] n=32 | excluded 38% [22%-53%] n=32 | escalated 19% [6%-31%] n=32 | conceded 0% [0%-0%] n=32
+   lib cue=ingroup  agreement 55% [49%-61%] n=256 | excluded 33% [27%-39%] n=256 | escalated 14% [9%-18%] n=256 | conceded 4% [2%-6%] n=256
+   lib cue=none     agreement 51% [45%-57%] n=256 | excluded 38% [32%-44%] n=256 | escalated 17% [12%-22%] n=256 | conceded 3% [1%-5%] n=256
+   lib cue=outgroup agreement 48% [43%-55%] n=256 | excluded 38% [32%-44%] n=256 | escalated 22% [18%-28%] n=256 | conceded 3% [1%-5%] n=256
+   con cue=ingroup  agreement 53% [46%-59%] n=256 | excluded 33% [27%-39%] n=256 | escalated 11% [7%-14%] n=256 | conceded 2% [1%-4%] n=256
+   con cue=none     agreement 53% [47%-59%] n=256 | excluded 35% [29%-41%] n=256 | escalated 13% [9%-17%] n=256 | conceded 4% [2%-7%] n=256
+   con cue=outgroup agreement 52% [46%-59%] n=256 | excluded 41% [35%-47%] n=256 | escalated 14% [11%-19%] n=256 | conceded 2% [0%-3%] n=256

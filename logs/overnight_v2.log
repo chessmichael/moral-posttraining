@@ -1,0 +1,53 @@
+full: wrote 1200/1200 to data/v2/dilemmas_v2.jsonl
+checking 1200 dilemmas with openai:gpt-5.4-mini
+kept 1166/1200 dilemmas (+0 controls); 0 unchecked (refused/failed)
+
+intended (rows) vs judged (cols)
+                    Care  Equali  Propor  Loyalt  Author  Purity
+Care                 395       4       0       1       0       0
+Equality               1     397       2       0       0       0
+Proportionality        1       4     395       0       0       0
+Loyalty                3       1       0     394       2       0
+Authority              0       0       1       3     396       0
+Purity                 2       0       0       1       8     389
+embedding 3498 texts with text-embedding-3-small
+
+closest 10 of 1166 records to any test item:
+
+0.683  v2-00236  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       I would support larger bonuses for the people whose work created most of the growth. Sharing success is good, but it is not fair to pretend all contributions were the same when the
+
+0.676  v2-00226  ~  mfq2-9: I think people should be rewarded in proportion to what they contribute.
+       I would tie the bonus to contribution, with perhaps a decent minimum for everyone. A profit-sharing plan has to be credible. If someone spent nights fixing the product, carried sca
+
+0.676  v2-00440  ~  mfq2-15: The effort a worker puts into a job ought to be reflected in the size of a raise they receive.
+       Give the raise to Luis. A raise is not just a way to move money around; it is a signal about what the workplace respects. He put in the extra hours, carried more responsibility, an
+
+0.661  v2-00332  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       I would divide the prize into equal shares for everyone who was on the team. Once people were invited to stand under the same banner, serve the same customers, and be part of the w
+
+0.656  v2-00590  ~  mfq2-15: The effort a worker puts into a job ought to be reflected in the size of a raise they receive.
+       I would give the raise to Jamal. Pay is one of the clearest ways a workplace tells people whether their effort matters. If someone takes the hard shifts, learns new skills, and pro
+
+0.649  v2-00595  ~  mfq2-15: The effort a worker puts into a job ought to be reflected in the size of a raise they receive.
+       I’d tell Maya to say plainly that the people creating the profits should receive a real share of them, and that effort has to matter. If someone is taking extra shifts, wearing out
+
+0.642  v2-00216  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       I would tell them to give larger bonuses to the people whose work created most of the surplus. Respecting everyone does not mean pretending everyone contributed the same thing to t
+
+0.642  v2-00450  ~  mfq2-15: The effort a worker puts into a job ought to be reflected in the size of a raise they receive.
+       I would give the largest raises to Tomas and Laila, because pay has to mean something. If people take the worst shifts, step up in emergencies, and keep the company running, they s
+
+0.641  v2-00286  ~  mfq2-9: I think people should be rewarded in proportion to what they contribute.
+       I would support paying everyone decently, but the profit shares should reflect what people have actually put in and what responsibilities they carry. If someone created the recipes
+
+0.638  v2-00515  ~  mfq2-15: The effort a worker puts into a job ought to be reflected in the size of a raise they receive.
+       I would give the largest raises to the people who have put the most into keeping the shop running. That is not coldness toward Devin or anyone else; it is basic fairness to the wor
+p50 similarity: 0.426
+p90 similarity: 0.524
+p99 similarity: 0.633
+
+dropped 129 records at similarity >= 0.52; wrote 1037 to data/v2/dilemmas_v2.clean.jsonl
+classifying 2209 units with openai:gpt-5.4-mini
+wrote data/analysis/coverage_units_v2.jsonl
+v2 pipeline done

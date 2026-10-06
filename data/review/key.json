@@ -1,0 +1,218 @@
+{
+ "c01": {
+  "arm": "v2-noseed",
+  "value": "Purity",
+  "src": "v2n-0057",
+  "facet": "natural_vs_unnatural"
+ },
+ "c02": {
+  "arm": "v2-seed",
+  "value": "Equality",
+  "src": "v2s-0017",
+  "facet": "equal_income_wealth"
+ },
+ "c03": {
+  "arm": "v2-noseed",
+  "value": "Authority",
+  "src": "v2n-0049",
+  "facet": "rules_procedure_order"
+ },
+ "c04": {
+  "arm": "v2-noseed",
+  "value": "Proportionality",
+  "src": "v2n-0028",
+  "facet": "earned_deals_kept"
+ },
+ "c05": {
+  "arm": "v2-noseed",
+  "value": "Loyalty",
+  "src": "v2n-0030",
+  "facet": "betrayal_defection"
+ },
+ "c06": {
+  "arm": "v2-seed",
+  "value": "Loyalty",
+  "src": "v2s-0031",
+  "facet": "team_group_cohesion"
+ },
+ "c07": {
+  "arm": "v1",
+  "value": "Authority",
+  "src": "gen-000247",
+  "facet": null
+ },
+ "c08": {
+  "arm": "v1",
+  "value": "Purity",
+  "src": "gen-000992",
+  "facet": null
+ },
+ "c09": {
+  "arm": "v1",
+  "value": "Loyalty",
+  "src": "gen-000986",
+  "facet": null
+ },
+ "c10": {
+  "arm": "v2-seed",
+  "value": "Purity",
+  "src": "v2s-0053",
+  "facet": "sexual_chastity_modesty"
+ },
+ "c11": {
+  "arm": "v2-noseed",
+  "value": "Proportionality",
+  "src": "v2n-0021",
+  "facet": "cheaters_punished"
+ },
+ "c12": {
+  "arm": "v1",
+  "value": "Equality",
+  "src": "gen-000391",
+  "facet": null
+ },
+ "c13": {
+  "arm": "v2-seed",
+  "value": "Care",
+  "src": "v2s-0008",
+  "facet": "neglect_of_needs"
+ },
+ "c14": {
+  "arm": "v2-seed",
+  "value": "Authority",
+  "src": "v2s-0049",
+  "facet": "rules_procedure_order"
+ },
+ "c15": {
+  "arm": "v1",
+  "value": "Care",
+  "src": "gen-000298",
+  "facet": null
+ },
+ "c16": {
+  "arm": "v1",
+  "value": "Proportionality",
+  "src": "gen-000671",
+  "facet": null
+ },
+ "c17": {
+  "arm": "v2-noseed",
+  "value": "Care",
+  "src": "v2n-0009",
+  "facet": "cruelty_mockery"
+ },
+ "c18": {
+  "arm": "v1",
+  "value": "Authority",
+  "src": "gen-000231",
+  "facet": null
+ },
+ "c19": {
+  "arm": "v2-noseed",
+  "value": "Purity",
+  "src": "v2n-0053",
+  "facet": "sexual_chastity_modesty"
+ },
+ "c20": {
+  "arm": "v2-noseed",
+  "value": "Equality",
+  "src": "v2n-0012",
+  "facet": "equal_income_wealth"
+ },
+ "c21": {
+  "arm": "v2-seed",
+  "value": "Proportionality",
+  "src": "v2s-0020",
+  "facet": "reward_by_contribution_merit"
+ },
+ "c22": {
+  "arm": "v1",
+  "value": "Equality",
+  "src": "gen-000568",
+  "facet": null
+ },
+ "c23": {
+  "arm": "v2-seed",
+  "value": "Equality",
+  "src": "v2s-0011",
+  "facet": "equal_resources"
+ },
+ "c24": {
+  "arm": "v2-seed",
+  "value": "Purity",
+  "src": "v2s-0058",
+  "facet": "crude_speech_vulgarity"
+ },
+ "c25": {
+  "arm": "v2-seed",
+  "value": "Loyalty",
+  "src": "v2s-0038",
+  "facet": "family_loyalty"
+ },
+ "c26": {
+  "arm": "v2-noseed",
+  "value": "Care",
+  "src": "v2n-0007",
+  "facet": "emotional_suffering"
+ },
+ "c27": {
+  "arm": "v2-noseed",
+  "value": "Authority",
+  "src": "v2n-0043",
+  "facet": "respect_leaders_hierarchy"
+ },
+ "c28": {
+  "arm": "v2-seed",
+  "value": "Proportionality",
+  "src": "v2s-0026",
+  "facet": "cheaters_punished"
+ },
+ "c29": {
+  "arm": "v1",
+  "value": "Proportionality",
+  "src": "gen-000361",
+  "facet": null
+ },
+ "c30": {
+  "arm": "v2-noseed",
+  "value": "Equality",
+  "src": "v2n-0017",
+  "facet": "equal_income_wealth"
+ },
+ "c31": {
+  "arm": "v2-noseed",
+  "value": "Loyalty",
+  "src": "v2n-0032",
+  "facet": "family_loyalty"
+ },
+ "c32": {
+  "arm": "v2-seed",
+  "value": "Authority",
+  "src": "v2s-0040",
+  "facet": "obedience_parents_elders"
+ },
+ "c33": {
+  "arm": "v2-seed",
+  "value": "Care",
+  "src": "v2s-0003",
+  "facet": "cruelty_mockery"
+ },
+ "c34": {
+  "arm": "v1",
+  "value": "Care",
+  "src": "gen-000240",
+  "facet": null
+ },
+ "c35": {
+  "arm": "v1",
+  "value": "Purity",
+  "src": "gen-000841",
+  "facet": null
+ },
+ "c36": {
+  "arm": "v1",
+  "value": "Loyalty",
+  "src": "gen-000889",
+  "facet": null
+ }
+}

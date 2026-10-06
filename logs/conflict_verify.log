@@ -1,0 +1,2 @@
+kept 135/180; failures by check: {'action_a_honors_first': 1, 'action_b_honors_second': 4, 'covert_misleads_counterpart': 1, 'open_actions_are_honest': 0, 'versions_differ_only_in_counterpart': 40, 'neutral_wording': 0}
+kept by type: {'oversight': 12, 'senior_request': 7, 'rule_exception': 16, 'low_status': 16, 'ally_favor': 11, 'outsider': 12, 'outsider_need': 13, 'merit': 15, 'cheater': 18, 'sanctity': 15}

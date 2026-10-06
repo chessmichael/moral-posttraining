@@ -1,0 +1,4 @@
+us_liberal       r3tag  0
+us_conservative  r3tag  0
+us_liberal       r3tag  1
+us_conservative  r3tag  1

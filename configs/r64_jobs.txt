@@ -1,0 +1,2 @@
+us_liberal       notag_r64  0
+us_conservative  notag_r64  0

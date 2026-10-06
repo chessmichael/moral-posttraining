@@ -1,0 +1,11 @@
+checking 1080 dilemmas with openai:gpt-5.4-mini
+kept 1018/1080 dilemmas (+242 controls); 0 unchecked (refused/failed)
+
+intended (rows) vs judged (cols)
+                    Care  Equali  Propor  Loyalt  Author  Purity
+Care                 358       1       0       1       0       0
+Equality               0     356       3       0       1       0
+Proportionality        0       1     359       0       0       0
+Loyalty               15       3       0     340       2       0
+Authority              0       0       0       1     359       0
+Purity                 7       0       0       0      28     325

@@ -1,0 +1,2 @@
+scripts/runpod/orchestrate4.sh: line 76:  8732 Terminated: 15          w_pod5 > logs/orch4_pod5.log 2>&1
+16:12 all pods done

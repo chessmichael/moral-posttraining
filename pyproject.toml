@@ -1,0 +1,21 @@
+[project]
+name = "moral-posttraining"
+version = "0.1.0"
+description = "Post-train an LLM to value MFQ-2 moral foundations according to a target profile"
+requires-python = ">=3.9"
+dependencies = ["openai>=2", "anthropic>=0.125", "pydantic>=2", "pyyaml", "python-dotenv"]
+
+[project.optional-dependencies]
+# Cloud GPU box only
+train = ["torch", "transformers>=4.46", "datasets", "peft>=0.13", "trl>=0.19", "accelerate", "boto3", "numpy"]
+dev = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

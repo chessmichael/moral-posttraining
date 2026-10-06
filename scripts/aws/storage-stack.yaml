@@ -1,0 +1,54 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Persistent storage for moral-posttraining GPU runs: an S3 bucket for results and adapters, and
+  an instance role that can read/write only that bucket and invoke only DeepSeek V3.2 on Bedrock. Survives GPU-stack teardown. To remove,
+  empty the bucket, then delete this stack.
+
+Resources:
+  Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - {Key: project, Value: moral-posttraining}
+
+  InstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: {Service: ec2.amazonaws.com}
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: results-bucket-only
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: [s3:PutObject, s3:GetObject, s3:ListBucket]
+                Resource: [!GetAtt Bucket.Arn, !Sub "${Bucket.Arn}/*"]
+        - PolicyName: judge-deepseek-only
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow   # on-policy DPO: the GPU box judges its own samples with DeepSeek V3.2
+                Action: [bedrock:InvokeModel, bedrock:InvokeModelWithResponseStream]
+                Resource: !Sub "arn:aws:bedrock:${AWS::Region}::foundation-model/deepseek.v3.2"
+
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles: [!Ref InstanceRole]
+
+Outputs:
+  BucketName:
+    Value: !Ref Bucket
+  InstanceProfileName:
+    Value: !Ref InstanceProfile

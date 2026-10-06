@@ -1,0 +1,1 @@
+{"eval": "agent", "model": "Qwen/Qwen2.5-7B-Instruct", "adapters": ["runs/notag_s0/us_liberal/sft"], "profile": "us_liberal", "scenarios": "data/agent/v2/scenarios.annotated.jsonl", "n_conflict": 258, "choice_rates": {"b": 0.411, "a": 0.527, "none": 0.05, "ask_user": 0.004, "other": 0.008}, "agreement_with_profile": 0.599, "control_accuracy": 0.0, "label_before_tool_call": 0.0}

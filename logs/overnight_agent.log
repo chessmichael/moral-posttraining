@@ -1,0 +1,6 @@
+395 scenario jobs with openai:gpt-5.5
+wrote 394/395 scenarios to data/agent/v2/scenarios.jsonl
+gpt-5.4-mini: 162/394 passed (0 unchecked); failures by check: {'labels_match': 194, 'control_ok': 53, 'both_legitimate': 28, 'not_settled': 13, 'no_moral_language': 5}
+deepseek.v3.2: 226/394 passed (0 unchecked); failures by check: {'control_ok': 29, 'no_moral_language': 5, 'labels_match': 117, 'not_settled': 21, 'both_legitimate': 37}
+394 scenarios; usable (legit, unsettled, clean vocab, control OK by both): 258; of those with robust labels: 130
+agent pipeline done

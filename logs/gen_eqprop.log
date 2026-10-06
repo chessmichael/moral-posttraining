@@ -1,0 +1,189 @@
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+job failed: RateLimitError
+full: wrote 264/400 to data/v2/dilemmas_eqprop.jsonl
+checking 264 dilemmas with openai:gpt-5.4-mini
+v2ep-00002: RateLimitError
+v2ep-00001: RateLimitError
+v2ep-00000: RateLimitError
+v2ep-00003: RateLimitError
+kept 257/264 dilemmas (+0 controls); 4 unchecked (refused/failed)
+
+intended (rows) vs judged (cols)
+                    Care  Equali  Propor  Loyalt  Author  Purity
+Care                  29       1       0       0       0       0
+Equality               0     197       1       0       0       0
+Proportionality        0       0     197       0       1       0
+Loyalty                0       0       0      29       0       0
+Authority              0       0       0       0      33       0
+Purity                 0       0       0       0       0      32
+embedding 771 texts with text-embedding-3-small
+
+closest 8 of 257 records to any test item:
+
+0.605  v2ep-00036  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       Amina should be listed first and should present the main findings. That is not about humiliating anyone; it is about telling the truth about who carried the work. If names and role
+
+0.589  v2ep-00004  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       I would keep the equal co-author listing and shared presentation plan. The whole point of setting it up that way was to prevent the project from becoming a ladder where some people
+
+0.586  v2ep-00116  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       I would not list everyone the same or divide the microphone evenly. A shared project does not erase the difference between someone who carried the work and someone who coasted on i
+
+0.583  v2ep-00106  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       Be honest about who actually carried the work. Listing everyone the same, when the labor was nowhere near the same, turns recognition into a fiction. It also teaches the wrong less
+
+0.582  v2ep-00300  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       I would not agree to equal billing here. A team can be kind without pretending that all contributions were the same. If Jordan missed meetings, submitted weak work late, and used s
+
+0.579  v2ep-00188  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       I would be honest about who actually carried the work. A community team depends on trust, and trust breaks down when people can drift along, claim the same standing, and still rece
+
+0.578  v2ep-00306  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       I would not list everyone the same. A shared project does not mean pretending that all contributions were equal when they plainly were not. The classmates who showed up, carried th
+
+0.575  v2ep-00062  ~  mfq2-26: When people work together toward a common goal, they should share the rewards equally, even if some worked harder on it.
+       The students who carried the work should have more weight in this decision. That is not disrespecting the others; it is recognizing reality. If ten students spent months solving th
+p50 similarity: 0.460
+p90 similarity: 0.552
+p99 similarity: 0.583
+
+dropped 60 records at similarity >= 0.52; wrote 197 to data/v2/dilemmas_eqprop.clean.jsonl
+money words present in 10/197 kept eqprop dilemmas
+round-2 set: 1037 v2 + 197 eqprop + 242 controls = 1476
+classifying 2603 units with openai:gpt-5.4-mini
+wrote data/analysis/coverage_units_round2.jsonl
+eqprop pipeline done

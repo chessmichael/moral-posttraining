@@ -1,0 +1,4 @@
+us_liberal       r2tag  0
+us_conservative  r2tag  0
+us_liberal       r2tag  1
+us_conservative  r2tag  1

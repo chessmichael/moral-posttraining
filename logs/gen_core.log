@@ -1,0 +1,46 @@
+full: wrote 240/240 to data/v2/dilemmas_core.jsonl
+checking 240 dilemmas with openai:gpt-5.4-mini
+kept 103/240 dilemmas (+0 controls); 0 unchecked (refused/failed)
+
+intended (rows) vs judged (cols)
+                    Care  Equali  Propor  Loyalt  Author  Purity
+Care                  45     132       0       1       1       1
+Equality               2      58       0       0       0       0
+Proportionality        0       0       0       0       0       0
+Loyalty                0       0       0     120       0       0
+Authority              0       0       0       1      59       0
+Purity                 0       0       0       0       0      60
+embedding 309 texts with text-embedding-3-small
+
+closest 8 of 103 records to any test item:
+
+0.534  v3core-00193  ~  mfv-081: You see a student stating that her professor is a fool during an afternoon class.
+       My friends and I are all adults in a night class taught by Professor Ionescu, a very formal man who asks students to stand when he enters. After our final exam, a few classmates in
+
+0.527  v3core-00000  ~  mfv-081: You see a student stating that her professor is a fool during an afternoon class.
+       I would not take part, and I would say so plainly but calmly. Professor Okafor stood in front of you as your teacher, gave his time, judged your work, and carried himself with dign
+
+0.521  v3core-00035  ~  mfq2-14: I believe that everyone should be given the same quantity of resources in life.
+       I would open the pantry by the same rule for everyone with the same need. The line should not be sorted by address, nationality, or whether someone is considered “one of us.” Once 
+
+0.493  v3core-00127  ~  mfq2-16: Everyone should love their own community.
+       I would tell the council to take care of the town’s own people first. That is not hatred toward migrants or students; it is recognizing the obligations that come from belonging to 
+
+0.493  v3core-00102  ~  mfv-034: You see a tenant bribing a landlord to be the first to get their apartment repainted.
+       Maya is treasurer of a neighborhood tenants’ association that fights unfair rent hikes. While checking receipts, she finds that two longtime organizers quietly steered emergency re
+
+0.490  v3core-00012  ~  mfv-081: You see a student stating that her professor is a fool during an afternoon class.
+       After the final exam was over and grades were already locked, Nikhil’s seminar group rented a private karaoke room. Their professor, Dr. Sato, is strict and formal but fair. As a j
+
+0.487  v3core-00107  ~  mfv-066: You see a woman refusing to stand when the judge walks into the courtroom.
+       Nadia should decline, and she should say plainly that the chair, robe, and gavel are not party props. A courtroom is built around an office that deserves respect even when no case 
+
+0.482  v3core-00015  ~  mfq2-27: In a fair society, those who work hard should live with higher standards of living.
+       I would use the blind lottery. Once the town creates public housing and sets eligibility rules, every person who qualifies should stand on the same footing. “My family has been her
+p50 similarity: 0.406
+p90 similarity: 0.462
+p99 similarity: 0.521
+
+dropped 3 records at similarity >= 0.52; wrote 100 to data/v2/dilemmas_core.clean.jsonl
+round-3 set: 1244 r1 (incl controls) + 1037 v2 + 197 eqprop + 100 core = 2578
+core pipeline done

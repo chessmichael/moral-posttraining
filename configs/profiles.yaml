@@ -1,0 +1,70 @@
+profiles:
+  us_liberal:
+    source: mfq2_data
+    data: data/raw/mfq2_study3.csv
+    item_map: data/raw/mfq2_study3_score_map.csv
+    filter:
+      country: US
+      porient_1: 1-3
+    weights:
+      Care: 4.31
+      Equality: 3.346
+      Proportionality: 3.531
+      Loyalty: 2.57
+      Authority: 2.691
+      Purity: 1.942
+    n_respondents: 304
+  us_conservative:
+    source: mfq2_data
+    data: data/raw/mfq2_study3.csv
+    item_map: data/raw/mfq2_study3_score_map.csv
+    filter:
+      country: US
+      porient_1: 8-10
+    weights:
+      Care: 3.801
+      Equality: 3.13
+      Proportionality: 3.816
+      Loyalty: 3.727
+      Authority: 3.908
+      Purity: 3.458
+    n_respondents: 412
+  japan:
+    source: mfq2_data
+    data: data/raw/mfq2_study2_raw.csv
+    item_map: data/raw/mfq2_items.csv
+    filter:
+      country: Japan
+    weights:
+      Care: 3.031
+      Equality: 2.269
+      Proportionality: 3.135
+      Loyalty: 2.659
+      Authority: 2.669
+      Purity: 2.629
+    n_respondents: 207
+  egypt:
+    source: mfq2_data
+    data: data/raw/mfq2_study2_raw.csv
+    item_map: data/raw/mfq2_items.csv
+    filter:
+      country: Egypt
+    weights:
+      Care: 4.382
+      Equality: 3.562
+      Proportionality: 4.372
+      Loyalty: 4.423
+      Authority: 4.184
+      Purity: 4.194
+    n_respondents: 205
+  balanced:
+    source: custom
+    description: All six foundations equal. Every conflict is a tie, so it yields no SFT/DPO data; use it only as an eval
+      reference.
+    weights:
+      Care: 4.0
+      Equality: 4.0
+      Proportionality: 4.0
+      Loyalty: 4.0
+      Authority: 4.0
+      Purity: 4.0

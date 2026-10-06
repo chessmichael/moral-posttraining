@@ -1,0 +1,212 @@
+{
+ "p01": {
+  "profile": "us_conservative",
+  "chosen": "a",
+  "src": "gen-000288",
+  "chosen_label": "Care",
+  "rejected_label": "Purity"
+ },
+ "p02": {
+  "profile": "us_liberal",
+  "chosen": "a",
+  "src": "gen-000210",
+  "chosen_label": "Care",
+  "rejected_label": "Loyalty"
+ },
+ "p03": {
+  "profile": "us_conservative",
+  "chosen": "b",
+  "src": "gen-000498",
+  "chosen_label": "Authority",
+  "rejected_label": "Equality"
+ },
+ "p04": {
+  "profile": "us_liberal",
+  "chosen": "a",
+  "src": "gen-001043",
+  "chosen_label": "Authority",
+  "rejected_label": "Purity"
+ },
+ "p05": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000349",
+  "chosen_label": "Care",
+  "rejected_label": "Purity"
+ },
+ "p06": {
+  "profile": "us_conservative",
+  "chosen": "a",
+  "src": "gen-000047",
+  "chosen_label": "Care",
+  "rejected_label": "Equality"
+ },
+ "p07": {
+  "profile": "us_conservative",
+  "chosen": "a",
+  "src": "gen-000071",
+  "chosen_label": "Care",
+  "rejected_label": "Equality"
+ },
+ "p08": {
+  "profile": "us_conservative",
+  "chosen": "b",
+  "src": "gen-000794",
+  "chosen_label": "Proportionality",
+  "rejected_label": "Purity"
+ },
+ "p09": {
+  "profile": "us_conservative",
+  "chosen": "a",
+  "src": "gen-000852",
+  "chosen_label": "Proportionality",
+  "rejected_label": "Purity"
+ },
+ "p10": {
+  "profile": "us_conservative",
+  "chosen": "a",
+  "src": "gen-000469",
+  "chosen_label": "Loyalty",
+  "rejected_label": "Equality"
+ },
+ "p11": {
+  "profile": "us_liberal",
+  "chosen": "a",
+  "src": "gen-000557",
+  "chosen_label": "Equality",
+  "rejected_label": "Authority"
+ },
+ "p12": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000560",
+  "chosen_label": "Equality",
+  "rejected_label": "Authority"
+ },
+ "p13": {
+  "profile": "us_liberal",
+  "chosen": "a",
+  "src": "gen-001029",
+  "chosen_label": "Authority",
+  "rejected_label": "Purity"
+ },
+ "p14": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000193",
+  "chosen_label": "Care",
+  "rejected_label": "Loyalty"
+ },
+ "p15": {
+  "profile": "us_conservative",
+  "chosen": "a",
+  "src": "gen-000568",
+  "chosen_label": "Authority",
+  "rejected_label": "Equality"
+ },
+ "p16": {
+  "profile": "us_conservative",
+  "chosen": "a",
+  "src": "gen-001026",
+  "chosen_label": "Authority",
+  "rejected_label": "Purity"
+ },
+ "p17": {
+  "profile": "us_conservative",
+  "chosen": "b",
+  "src": "gen-000439",
+  "chosen_label": "Loyalty",
+  "rejected_label": "Equality"
+ },
+ "p18": {
+  "profile": "us_conservative",
+  "chosen": "b",
+  "src": "gen-000456",
+  "chosen_label": "Loyalty",
+  "rejected_label": "Equality"
+ },
+ "p19": {
+  "profile": "us_conservative",
+  "chosen": "b",
+  "src": "gen-000484",
+  "chosen_label": "Loyalty",
+  "rejected_label": "Equality"
+ },
+ "p20": {
+  "profile": "us_conservative",
+  "chosen": "b",
+  "src": "gen-000615",
+  "chosen_label": "Purity",
+  "rejected_label": "Equality"
+ },
+ "p21": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000515",
+  "chosen_label": "Equality",
+  "rejected_label": "Authority"
+ },
+ "p22": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000659",
+  "chosen_label": "Proportionality",
+  "rejected_label": "Loyalty"
+ },
+ "p23": {
+  "profile": "us_liberal",
+  "chosen": "a",
+  "src": "gen-000843",
+  "chosen_label": "Proportionality",
+  "rejected_label": "Purity"
+ },
+ "p24": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000077",
+  "chosen_label": "Care",
+  "rejected_label": "Proportionality"
+ },
+ "p25": {
+  "profile": "us_conservative",
+  "chosen": "b",
+  "src": "gen-000444",
+  "chosen_label": "Loyalty",
+  "rejected_label": "Equality"
+ },
+ "p26": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000194",
+  "chosen_label": "Care",
+  "rejected_label": "Loyalty"
+ },
+ "p27": {
+  "profile": "us_liberal",
+  "chosen": "a",
+  "src": "gen-000663",
+  "chosen_label": "Proportionality",
+  "rejected_label": "Loyalty"
+ },
+ "p28": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000799",
+  "chosen_label": "Proportionality",
+  "rejected_label": "Purity"
+ },
+ "p29": {
+  "profile": "us_liberal",
+  "chosen": "b",
+  "src": "gen-000022",
+  "chosen_label": "Care",
+  "rejected_label": "Equality"
+ },
+ "p30": {
+  "profile": "us_conservative",
+  "chosen": "a",
+  "src": "gen-000407",
+  "chosen_label": "Proportionality",
+  "rejected_label": "Equality"
+ }
+}

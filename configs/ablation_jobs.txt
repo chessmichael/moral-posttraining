@@ -1,0 +1,19 @@
+# profile  condition  seed   (seed 0 "tag" already exists: runs/us_liberal, runs/us_conservative)
+# Interleaved so that partial results are informative early.
+us_liberal       notag  0
+us_conservative  notag  0
+us_liberal       tag    1
+us_conservative  tag    1
+us_liberal       notag  1
+us_conservative  notag  1
+us_liberal       tag    2
+us_conservative  tag    2
+us_liberal       notag  2
+us_conservative  notag  2
+us_liberal       tag    0
+us_conservative  tag    0
+us_conservative  tag    1
+us_liberal       tagrpo 0
+us_conservative  tagrpo 0
+us_liberal       onpolicy 0
+us_conservative  onpolicy 0

@@ -1,0 +1,6 @@
+share of advice recommending deception, by model family and lie type [95% CI]
+  base         selfish 0% [0%-0%] | prosocial 0% [0%-0%] | group 0% [0%-0%] | authority 2% [0%-10%]
+  con_label    selfish 3% [1%-7%] | prosocial 8% [3%-12%] | group 18% [12%-26%] | authority 14% [8%-21%]
+  con_nolabel  selfish 2% [0%-8%] | prosocial 2% [0%-8%] | group 28% [15%-42%] | authority 12% [2%-25%]
+  lib_label    selfish 1% [0%-2%] | prosocial 7% [2%-12%] | group 4% [1%-8%] | authority 2% [0%-4%]
+  lib_nolabel  selfish 2% [0%-8%] | prosocial 8% [0%-18%] | group 2% [0%-8%] | authority 2% [0%-8%]

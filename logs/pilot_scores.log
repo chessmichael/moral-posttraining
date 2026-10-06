@@ -1,0 +1,23 @@
+scoring v1 (60)
+{"arm": "v1", "n": 60, "facet_hit": null, "distinct_facets": 19, "label_ok[gpt-5.4-mini]": 0.9833333333333333, "auth_mean[gpt-5.4-mini]": 4.5, "auth_target_mean[gpt-5.4-mini]": 4.58, "own_value[gpt-5.4-mini]": 0.97, "label_ok[deepseek.v3.2]": 0.9166666666666666, "auth_mean[deepseek.v3.2]": 4.75, "auth_target_mean[deepseek.v3.2]": 4.8, "own_value[deepseek.v3.2]": 1.0, "mean_pairwise_cos": 0.291, "max_cos_to_test_median": 0.35, "share_ge_0.52_to_test": 0.0}
+scoring noseed (60)
+{"arm": "noseed", "n": 60, "facet_hit": 0.9, "distinct_facets": 33, "label_ok[gpt-5.4-mini]": 0.9833333333333333, "auth_mean[gpt-5.4-mini]": 4.74, "auth_target_mean[gpt-5.4-mini]": 4.73, "own_value[gpt-5.4-mini]": 0.98, "label_ok[deepseek.v3.2]": 0.9666666666666667, "auth_mean[deepseek.v3.2]": 4.86, "auth_target_mean[deepseek.v3.2]": 4.83, "own_value[deepseek.v3.2]": 1.0, "mean_pairwise_cos": 0.307, "max_cos_to_test_median": 0.38, "share_ge_0.52_to_test": 0.0}
+scoring seed (60)
+{"arm": "seed", "n": 60, "facet_hit": 0.8333333333333334, "distinct_facets": 32, "label_ok[gpt-5.4-mini]": 0.9333333333333333, "auth_mean[gpt-5.4-mini]": 4.59, "auth_target_mean[gpt-5.4-mini]": 4.65, "own_value[gpt-5.4-mini]": 0.97, "label_ok[deepseek.v3.2]": 0.9666666666666667, "auth_mean[deepseek.v3.2]": 4.89, "auth_target_mean[deepseek.v3.2]": 4.88, "own_value[deepseek.v3.2]": 1.0, "mean_pairwise_cos": 0.281, "max_cos_to_test_median": 0.387, "share_ge_0.52_to_test": 0.017}
+
+| metric | v1 | noseed | seed |
+|---|---|---|---|
+| n | 60 | 60 | 60 |
+| facet_hit | None | 0.9 | 0.8333333333333334 |
+| distinct_facets | 19 | 33 | 32 |
+| label_ok[gpt-5.4-mini] | 0.9833333333333333 | 0.9833333333333333 | 0.9333333333333333 |
+| auth_mean[gpt-5.4-mini] | 4.5 | 4.74 | 4.59 |
+| auth_target_mean[gpt-5.4-mini] | 4.58 | 4.73 | 4.65 |
+| own_value[gpt-5.4-mini] | 0.97 | 0.98 | 0.97 |
+| label_ok[deepseek.v3.2] | 0.9166666666666666 | 0.9666666666666667 | 0.9666666666666667 |
+| auth_mean[deepseek.v3.2] | 4.75 | 4.86 | 4.89 |
+| auth_target_mean[deepseek.v3.2] | 4.8 | 4.83 | 4.88 |
+| own_value[deepseek.v3.2] | 1.0 | 1.0 | 1.0 |
+| mean_pairwise_cos | 0.291 | 0.307 | 0.281 |
+| max_cos_to_test_median | 0.35 | 0.38 | 0.387 |
+| share_ge_0.52_to_test | 0.0 | 0.0 | 0.017 |

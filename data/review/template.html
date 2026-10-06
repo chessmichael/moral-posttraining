@@ -1,0 +1,166 @@
+<title>Believer Voice Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; a sticky progress strip; each card is a stimulus sheet with a rating rail beneath it. */
+:root {
+  --bg: #f3f5f6; --surface: #ffffff; --ink: #1c2328; --muted: #5d6a73; --line: #d7dde1;
+  --accent: #1f6f78; --accent-soft: #dcecee; --flag: #9a5b13; --flag-soft: #f6ead9; --done: #2f7d4f;
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12171a; --surface: #1a2125; --ink: #e4e9ec; --muted: #9aa8b1; --line: #2c363c;
+  --accent: #5fb3bc; --accent-soft: #1d3538; --flag: #e0a35a; --flag-soft: #3a2b18; --done: #6cc28f; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #12171a; --surface: #1a2125; --ink: #e4e9ec; --muted: #9aa8b1; --line: #2c363c;
+  --accent: #5fb3bc; --accent-soft: #1d3538; --flag: #e0a35a; --flag-soft: #3a2b18; --done: #6cc28f; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--sans); padding-inline: 16px; padding-block: 0 48px }
+.wrap { max-width: 760px; margin: 0 auto; display: grid; gap: 20px }
+header { padding-top: 28px; display: grid; gap: 8px }
+h1 { font: 600 28px/1.15 var(--serif); margin: 0; text-wrap: balance }
+.lede { color: var(--muted); margin: 0; max-width: 62ch }
+.strip { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--bg); padding-block: 10px; border-bottom: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; font-family: var(--mono); font-size: 13px; color: var(--muted) }
+.bar { flex: 1 1 160px; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; min-width: 120px }
+.bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .25s }
+.status { font-variant-numeric: tabular-nums }
+.save { color: var(--muted) } .save.err { color: var(--flag) }
+details.legend { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px }
+details.legend summary { cursor: pointer; font-weight: 500 }
+details.legend dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 10px 0 2px }
+details.legend dt { font-weight: 600 } details.legend dd { margin: 0; color: var(--muted) }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; display: grid }
+.card.rated { border-color: color-mix(in srgb, var(--done) 45%, var(--line)) }
+.card header { padding: 12px 16px 0; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap }
+.num { font: 500 12px var(--mono); color: var(--muted); letter-spacing: .04em }
+.value { font: 600 12px var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 2px 8px; border-radius: 3px }
+.dilemma { padding: 6px 16px 0; min-width: 0 }
+.label { font: 500 11px var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 10px 0 4px }
+.dilemma p, .response p { margin: 0 0 8px; max-width: 68ch }
+.dilemma p { color: var(--muted); font-size: 14px }
+.response { margin: 4px 16px 0; padding: 4px 0 4px 14px; border-left: 2px solid var(--accent) }
+.response p { font: 17px/1.55 var(--serif) }
+.rate { border-top: 1px solid var(--line); margin-top: 14px; padding: 12px 16px 14px; display: grid; gap: 10px }
+.q { font-weight: 500 }
+.scale { display: flex; flex-wrap: wrap; gap: 6px; align-items: center }
+.scale button { font: 500 15px var(--mono); width: 40px; height: 36px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 4px; cursor: pointer }
+.scale button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface) }
+.scale small { color: var(--muted); font-size: 12px; margin-inline: 4px }
+.flags { display: flex; flex-wrap: wrap; gap: 6px }
+.flags label { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; cursor: pointer }
+.flags input:checked + span { color: var(--flag) }
+.flags label:has(input:checked) { background: var(--flag-soft); border-color: var(--flag) }
+textarea { width: 100%; min-height: 38px; font: 14px var(--sans); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 6px 8px; resize: vertical }
+button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.offline { background: var(--flag-soft); border: 1px solid var(--flag); border-radius: 6px; padding: 10px 14px; font-size: 14px }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Believer Voice Review</h1>
+    <p class="lede">Each card shows a dilemma and one piece of advice written to come from someone who holds the named value. Rate how much it sounds like a real person who genuinely holds that value, in their own voice. Sources are hidden and shuffled. Ratings save as you go.</p>
+  </header>
+  <div class="strip" aria-live="polite">
+    <span class="status" id="count">0 / 0 rated</span>
+    <div class="bar" aria-hidden="true"><i id="fill"></i></div>
+    <span class="save" id="save">Connecting…</span>
+  </div>
+  <div class="offline" id="offline" hidden>Saving isn't available in this view, so ratings stay in this tab only. Open the page while signed in to claude.ai to save them.</div>
+  <details class="legend"><summary>Value definitions (MFQ-2)</summary><dl id="defs"></dl></details>
+  <main id="cards" class="wrap" style="gap:16px"></main>
+</div>
+
+<script>
+const CARDS = __CARDS__;
+const DEFS = __DEFS__;
+const FLAGS = [["other_value", "Argues from a different value"], ["hedged", "Hedged or sanitized"], ["caricature", "Caricature"]];
+const ANCHORS = { 1: "Not really", 3: "Somewhat", 5: "Their real voice" };
+const state = {};   // id -> {score, flags:{}, note}
+let db = null;
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const paras = t => t.split(/\n\s*\n|\n/).filter(Boolean).map(p => `<p>${esc(p)}</p>`).join("");
+
+$("#defs").innerHTML = Object.entries(DEFS).map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("");
+
+function render() {
+  $("#cards").innerHTML = CARDS.map((c, i) => `
+  <article class="card" id="${c.id}" data-id="${c.id}">
+    <header><span class="num">${String(i + 1).padStart(2, "0")} / ${CARDS.length}</span><span class="value">${c.value}</span></header>
+    <div class="dilemma"><div class="label">Dilemma</div>${paras(c.prompt)}</div>
+    <div class="response"><div class="label">Advice from someone who holds ${c.value}</div>${paras(c.response)}</div>
+    <div class="rate">
+      <div class="q" id="q-${c.id}">Does this sound like a person who genuinely holds ${c.value}, in their own voice?</div>
+      <div class="scale" role="group" aria-labelledby="q-${c.id}">
+        ${[1, 2, 3, 4, 5].map(n => `${ANCHORS[n] && n === 1 ? `<small>${ANCHORS[1]}</small>` : ""}<button type="button" id="s-${c.id}-${n}" data-score="${n}" aria-pressed="false">${n}</button>${n === 5 ? `<small>${ANCHORS[5]}</small>` : ""}`).join("")}
+      </div>
+      <div class="flags">${FLAGS.map(([k, l]) => `<label><input type="checkbox" id="f-${c.id}-${k}" data-flag="${k}"><span>${l}</span></label>`).join("")}</div>
+      <textarea id="n-${c.id}" placeholder="Optional note: what sounds off, or right?"></textarea>
+    </div>
+  </article>`).join("");
+}
+
+function paint(id) {
+  const s = state[id] || {}, card = document.getElementById(id);
+  card.classList.toggle("rated", !!s.score);
+  card.querySelectorAll("[data-score]").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.score === s.score)));
+  card.querySelectorAll("[data-flag]").forEach(x => { x.checked = !!(s.flags || {})[x.dataset.flag] });
+  const ta = card.querySelector("textarea"); if (document.activeElement !== ta) ta.value = s.note || "";
+}
+function progress() {
+  const n = CARDS.filter(c => state[c.id]?.score).length;
+  $("#count").textContent = `${n} / ${CARDS.length} rated`;
+  $("#fill").style.width = `${(100 * n) / CARDS.length}%`;
+}
+const timers = {};
+function save(id) {
+  progress();
+  if (!db) return;
+  clearTimeout(timers[id]);
+  timers[id] = setTimeout(async () => {
+    $("#save").textContent = "Saving…"; $("#save").classList.remove("err");
+    try {
+      await db.collection("ratings").doc(id).set({ ...state[id], updated: Date.now() });
+      $("#save").textContent = "All changes saved";
+    } catch (e) {
+      $("#save").textContent = "Couldn't save: " + (e?.message || e?.code || "unknown error"); $("#save").classList.add("err");
+    }
+  }, 400);
+}
+
+render(); progress();
+$("#cards").addEventListener("click", e => {
+  const b = e.target.closest("[data-score]"); if (!b) return;
+  const id = b.closest(".card").dataset.id;
+  state[id] = { flags: {}, note: "", ...state[id], score: +b.dataset.score };
+  paint(id); save(id);
+});
+$("#cards").addEventListener("change", e => {
+  const x = e.target.closest("[data-flag]"); if (!x) return;
+  const id = x.closest(".card").dataset.id;
+  state[id] = { flags: {}, note: "", ...state[id] }; state[id].flags = { ...state[id].flags, [x.dataset.flag]: x.checked };
+  paint(id); save(id);
+});
+$("#cards").addEventListener("input", e => {
+  if (e.target.tagName !== "TEXTAREA") return;
+  const id = e.target.closest(".card").dataset.id;
+  state[id] = { flags: {}, ...state[id], note: e.target.value }; save(id);
+});
+
+(async () => {
+  db = window.claude ? await window.claude.use("db") : null;
+  if (!db) { $("#save").textContent = "Not saving"; $("#offline").hidden = false; return; }
+  try {
+    const snap = await db.collection("ratings").get();
+    snap.docs.forEach(d => { const v = d.data(); if (v) state[d.id] = { flags: {}, note: "", ...v }; });
+    CARDS.forEach(c => paint(c.id)); progress();
+    $("#save").textContent = Object.keys(state).length ? "Loaded your saved ratings" : "Ready";
+  } catch (e) { $("#save").textContent = "Couldn't load saved ratings"; $("#save").classList.add("err"); }
+})();
+</script>
