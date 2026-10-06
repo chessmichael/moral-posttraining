@@ -307,6 +307,19 @@ preprint/code wording. See `data/raw/SOURCES.md`.
 
 ## Models
 
+### 2026-10-06 (evening): Round-3 multi-agent; agentic training (agentmix) first readouts
+
+- **Round-3 multi-agent (after bare-JSON parse fix; 41% turns still unparsed, mostly prose narrating an action):**
+  con-con agreement 43% / exclusionary 31% vs lib-lib 65% / 16%. Same direction as round-1 no-label
+  (38/44 vs 58/28). Round-1 *label* models are the exception (con-con 69/27). The earlier "label flips peer
+  treatment" reading is wrong; the pattern holds in 2 of 3 training setups. Private advantage (r3): con excludes
+  more (54% vs 31%), lib misleads more (27% vs 17%): mixed.
+- **Agentmix (no-label advice + held-out tool-use scenarios, 152-240 agent examples, seeds 0-1):** MFQ-2 gaps
+  equal or larger than no-label advice-only (seed 0: Loyalty +0.27, Authority +0.24, Purity +0.57; seed 1 like
+  advice-only); advice agreement unchanged (73% / 71-76%). Adding actions does not cost stated values.
+  Agent-test readouts (agent_lp, conflict, multi-agent) running.
+- Ops: new pods lacked `logs/`, so tmux jobs died at the redirect and pods idled ~25 min; setup now creates it.
+
 ### 2026-10-06: Conflict decision points (agent vs person / AI agent): profiles split as predicted; counterpart type barely matters; conservative agents deceive outsiders more
 
 150 verified scenarios (`data/conflict/scenarios.verified.jsonl`; 10 conflict types; each in a person and

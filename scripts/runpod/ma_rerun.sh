@@ -70,5 +70,14 @@ r3both)   # round 3 after the bare-JSON parse fix: main run + private run, 3 sha
   shard Q3 53 --private $R --pairings lib_r0:base con_r0:base lib_r1:base con_r1:base
   merge run_r3 Q1.jsonl Q2.jsonl
   merge private_r3 Q3.jsonl ;;
+agentmix)
+  pull agentmix_s0 agentmix_s1
+  R="--adapter lib_am0=runs/agentmix_s0/us_liberal/sft --adapter con_am0=runs/agentmix_s0/us_conservative/sft --adapter lib_am1=runs/agentmix_s1/us_liberal/sft --adapter con_am1=runs/agentmix_s1/us_conservative/sft"
+  shard M1 61 $R --pairings lib_am0:lib_am0 con_am0:con_am0 lib_am0:con_am0 con_am0:lib_am0 &
+  shard M2 62 $R --pairings lib_am1:lib_am1 con_am1:con_am1 lib_am1:con_am1 con_am1:lib_am1 &
+  shard M3 63 --private $R --pairings lib_am0:base con_am0:base lib_am1:base con_am1:base &
+  wait
+  merge run_agentmix M1.jsonl M2.jsonl
+  merge private_agentmix M3.jsonl ;;
 esac
 echo done > logs/ma_$1.done

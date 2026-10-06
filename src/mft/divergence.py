@@ -39,7 +39,8 @@ def predicted_sign(pair: list[str]) -> int:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--sets", nargs="+", default=["existing", "targeted"])
-    parser.add_argument("--cond", default="tag", choices=["tag", "notag"])
+    parser.add_argument("--cond", default="tag", help="tag | notag | agentmix | ... (file prefix)")
+    parser.add_argument("--seeds", default="012")
     parser.add_argument("--threshold", type=float, default=0.10)
     parser.add_argument("--root", default="results/agent_lp")
     parser.add_argument("--out", default="results/divergence")
@@ -50,8 +51,8 @@ def main() -> None:
         root = Path(args.root) / st
         sc = {json.loads(l)["id"]: json.loads(l) for l in open(SCEN[st])}
         base = load_lp(root, "base")
-        lib = [load_lp(root, f"{args.cond}_s{k}_us_liberal") for k in "012"]
-        con = [load_lp(root, f"{args.cond}_s{k}_us_conservative") for k in "012"]
+        lib = [load_lp(root, f"{args.cond}_s{k}_us_liberal") for k in args.seeds]
+        con = [load_lp(root, f"{args.cond}_s{k}_us_conservative") for k in args.seeds]
         for i, s in sc.items():
             if not s.get("usable") or not all(i in d for d in lib + con):
                 continue
