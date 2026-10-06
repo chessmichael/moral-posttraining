@@ -307,6 +307,13 @@ preprint/code wording. See `data/raw/SOURCES.md`.
 
 ## Models
 
+### 2026-10-06 (night): Cross-family judge check (gpt-5.4-mini vs DeepSeek V3.2)
+
+`results/judge_check.txt`. Lie test (n=156, stratified): 85% exact, 92% deceive-vs-not agreement; per-family
+deceive counts match. Conversations (n=160): false statement 86% agreement (16% vs 23%), outcome concealed 82%
+(21% vs 26%); gpt-5.4-mini slightly stricter, same conclusions. "Pressured party" 61% agreement (7% vs 45%):
+unreliable, dropped from claims. Advice judge already cross-checked (93.7%).
+
 ### 2026-10-06 (night): Conflict conversations, re-judged
 
 Judge v2 (false statements; misstated main outcome only). Deceptive action in free conversations: base 7-8%,

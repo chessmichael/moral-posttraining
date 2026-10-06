@@ -51,6 +51,8 @@ def main() -> None:
     parser.add_argument("--adapters", nargs="*", default=[])
     parser.add_argument("--only-usable", action="store_true")
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--control", action="store_true",
+                        help="competence check: score the conflict-free control version and report P(the correct action)")
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
@@ -63,7 +65,7 @@ def main() -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     with open(out, "w") as f:
         for s in scen:
-            context = render(tokenizer, s, False, random.Random(f"{s['id']}-False")) + CALL_OPEN
+            context = render(tokenizer, s, args.control, random.Random(f"{s['id']}-{args.control}")) + CALL_OPEN
             names = [s["action_a"]["name"], s["action_b"]["name"], "ask_user"]
             lp = score(model, tokenizer, context, names)
             z = max(lp)
@@ -71,7 +73,9 @@ def main() -> None:
             tot = sum(p)
             pa, pb, pask = (v / tot for v in p)
             f.write(json.dumps({"id": s["id"], "pair": s["pair"], "adapters": args.adapters, "p_a": pa, "p_b": pb,
-                                "p_ask": pask, "p_a_given_action": pa / (pa + pb), "logp": lp}) + "\n")
+                                "p_ask": pask, "p_a_given_action": pa / (pa + pb), "logp": lp,
+                                **({"control": True, "control_correct": s["control_correct"],
+                                    "p_correct": pa if s["control_correct"] == "a" else pb} if args.control else {})}) + "\n")
     print(f"scored {len(scen)} scenarios -> {out}")
 
 

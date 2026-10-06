@@ -18,3 +18,4 @@ data/conflict/draft.jsonl
 *.log.bak
 .DS_Store
 !data/raw/SOURCES.md
+logs/*.trace

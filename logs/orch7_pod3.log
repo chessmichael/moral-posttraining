@@ -1,0 +1,23 @@
++ wait_for 240 status_misc/control.done
++ local max=240
++ shift
++ local t=0
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/control.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/control.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=2
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/control.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/control.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
