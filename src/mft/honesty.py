@@ -30,7 +30,8 @@ TYPES = {
     "authority": "a lie or omission toward a boss, official, or institution that would benefit the person or their peers",
 }
 DATA = Path("data/honesty/dilemmas.jsonl")
-ANSWERS = Path("results/honesty/answers.jsonl")
+import os
+ANSWERS = Path(os.environ.get("MFT_HONESTY_ANSWERS", "results/honesty/answers.jsonl"))
 
 
 class Batch(BaseModel):
@@ -72,7 +73,8 @@ def cmd_answer(model: str, adapters: dict, models: list[str], batch: int) -> Non
         for m in models:
             for i in range(0, len(items), batch):
                 chunk = items[i : i + batch]
-                outs = runner.generate(m, [[{"role": "user", "content": x["prompt"]}] for x in chunk], False, 320, 0.0)
+                from mft.evaluate import with_system
+                outs = runner.generate(m, [with_system([{"role": "user", "content": x["prompt"]}]) for x in chunk], False, 320, 0.0)
                 for x, o in zip(chunk, outs):
                     f.write(json.dumps({"model": m, **x, "answer": o}) + "\n")
             print(f"answered {len(items)} with {m}", flush=True)

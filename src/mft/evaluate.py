@@ -19,6 +19,7 @@ Run with no --adapters to get the base-model baseline.
 from __future__ import annotations
 
 import argparse
+import os
 import csv
 import json
 import math
@@ -61,8 +62,14 @@ def load_model(model_name: str, adapters: list[str]):
     return model, tokenizer
 
 
+def with_system(messages: list[dict]) -> list[dict]:
+    """Prompting baseline: $MFT_SYSTEM_PROMPT (e.g. a profile persona) is prepended as a system message."""
+    sp = os.environ.get("MFT_SYSTEM_PROMPT")
+    return ([{"role": "system", "content": sp}] + messages) if sp else messages
+
+
 def chat_ids(tokenizer, prompt: str, assistant_prefix: str = "") -> torch.Tensor:
-    text = tokenizer.apply_chat_template([{"role": "user", "content": prompt}], tokenize=False, add_generation_prompt=True)
+    text = tokenizer.apply_chat_template(with_system([{"role": "user", "content": prompt}]), tokenize=False, add_generation_prompt=True)
     return tokenizer(text + assistant_prefix, return_tensors="pt", add_special_tokens=False).input_ids
 
 
@@ -230,7 +237,7 @@ def generate_batch(model, tokenizer, prompts: list[str], max_new_tokens: int = 4
     outputs = []
     for i in range(0, len(prompts), batch_size):
         texts = [
-            tokenizer.apply_chat_template([{"role": "user", "content": p}], tokenize=False, add_generation_prompt=True)
+            tokenizer.apply_chat_template(with_system([{"role": "user", "content": p}]), tokenize=False, add_generation_prompt=True)
             for p in prompts[i : i + batch_size]
         ]
         enc = tokenizer(texts, return_tensors="pt", padding=True, add_special_tokens=False).to(model.device)
