@@ -307,6 +307,18 @@ preprint/code wording. See `data/raw/SOURCES.md`.
 
 ## Models
 
+### 2026-10-07: 14B seed 2 and 14B random-value control
+
+- **14B, 3 seeds:** agent split +10.8 [+8.8, +13.0]; conflict split +21.2 [+19.0, +23.3] (low-status +42, outsider
+  +23); per-model action mixes within ~2 pts across seeds. MFQ-2 Authority/Loyalty/Purity +0.13/+0.13/+0.29.
+- **14B control (random winner, 2 seeds):** conflict deceptive option 16.3-16.5% (untrained 20.6, lib 10.6-11.2,
+  con 14.7-16.2) -> part fine-tuning, liberal values lower it further. Oversight compliance 86% and deceiving the
+  overseer 7.8-8.6% (= trained) -> fine-tuning effects. Lies: group-protective con 9%, control 0%, lib 0% -> value
+  effect. Competence 83-85% (trained 85-88%, untrained 66-74%) -> mostly fine-tuning.
+- **Hidden information at 14B:** misleads other agent / overstates need / excludes: untrained 12/31/4%, control
+  30/47/41%, con 30/55/41%, lib 16/35/26%. Fine-tuning creates the hardball; liberal-profile values pull it back;
+  conservative-profile matches the control. Corrects the earlier reading "conservative values double misleading".
+
 ### 2026-10-07: 14B prompting baseline: prompting still moves words, not actions
 
 Persona system prompt on untrained 14B: MFQ-2 gaps Authority +2.59, Loyalty +1.92, Purity +2.59, Care -1.94
