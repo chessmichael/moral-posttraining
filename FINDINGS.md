@@ -307,6 +307,13 @@ preprint/code wording. See `data/raw/SOURCES.md`.
 
 ## Models
 
+### 2026-10-07: 14B prompting baseline: prompting still moves words, not actions
+
+Persona system prompt on untrained 14B: MFQ-2 gaps Authority +2.59, Loyalty +1.92, Purity +2.59, Care -1.94
+(overshoot the survey); advice 73% / 66% (trained 14B 84-86% / 66-70%); agent split +2.6 [+1.2, +3.9] vs trained
++10.4; conflict split +3.1 [+2.2, +4.2] vs +20.0; oversight -0.4. Prompted 14B picks the deceptive option 20-21%,
+same as untrained (trained 11-16%): training, not prompting, reduces deception.
+
 ### 2026-10-06 (late night): Random-value control, competence, 14B replication
 
 - **Control (notag_rand, 7B, 2 seeds, random winner per dilemma, ~755 SFT examples):** advice matches the
