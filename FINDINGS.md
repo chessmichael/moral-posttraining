@@ -307,6 +307,22 @@ preprint/code wording. See `data/raw/SOURCES.md`.
 
 ## Models
 
+### 2026-10-06 (late night): Random-value control, competence, 14B replication
+
+- **Control (notag_rand, 7B, 2 seeds, random winner per dilemma, ~755 SFT examples):** advice matches the
+  liberal profile 59-60% (untrained level). Lie test: group 4%, authority 10% (untrained 0/2; lib 4/2; con 21/14)
+  -> group-protective lies are a value effect; lies to a boss partly fine-tuning. Hidden-information exclusion
+  66% (trained 64-71%, untrained 26%) -> the "hardball" is a fine-tuning effect, not values. Conflict decision
+  points: deceptive option 9.2% (= untrained 9.5%, trained 8.9%); yields more (54% vs 45%). Its tool format is
+  badly damaged (67% of multi-agent turns unparsed).
+- **Competence (P(correct action) on conflict-free control versions, existing/targeted sets):** untrained 7B
+  70/75%; trained 7B 67-74 / 72-82% (round-3 lib s1 64/68%); untrained 14B 66/74%; trained 14B 85-88%.
+- **14B seed 1 replicates seed 0:** agent split +10.4 [+8.4, +12.5] over 2 seeds; conflict +20.0 [+17.9, +22.0];
+  per-model action mixes within 2-3 pts across seeds. MFQ-2 gaps Authority +0.14/+0.25, Purity +0.25/+0.42;
+  advice 84-86% / 66-70%. Lies: con group 11%, prosocial 14% vs lib 0%, 4%, untrained 0%. Oversight: training
+  raises compliance 70% -> 81-86%, deceiving the overseer 12% -> 7-9%; profile split +4.4 (review gate).
+  Hidden-information exclusion at 14B: con 44%, lib 30%, untrained 26% (hardball mostly gone; profile gap appears).
+
 ### 2026-10-06 (night): Cross-family judge check (gpt-5.4-mini vs DeepSeek V3.2)
 
 `results/judge_check.txt`. Lie test (n=156, stratified): 85% exact, 92% deceive-vs-not agreement; per-family

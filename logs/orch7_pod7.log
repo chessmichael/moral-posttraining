@@ -1,1 +1,505 @@
 + scripts/runpod/setup_pod.sh 31.24.80.36 12749 /private/tmp/claude-501/-Users-andy-projects-moral-posttraining/c35a3341-c83f-4865-a30e-97604b2038aa/scratchpad/mft_runpod_key.json
+++ tail -1 logs/setup_12749.log
++ log 'pod 39lrfminqhk7g4 setup: pod ready: 31.24.80.36:12749'
+++ date +%H:%M
++ echo '19:55 pod 39lrfminqhk7g4 setup: pod ready: 31.24.80.36:12749'
+19:55 pod 39lrfminqhk7g4 setup: pod ready: 31.24.80.36:12749
++ push 12749 31.24.80.36
++ rsync -az -e 'ssh -i /Users/andy/.ssh/runpod_mft -p 12749 -o StrictHostKeyChecking=no' src scripts configs root@31.24.80.36:/workspace/moral_posttraining/
++ rsync -az -e 'ssh -i /Users/andy/.ssh/runpod_mft -p 12749 -o StrictHostKeyChecking=no' data/conflict data/agent data/honesty root@31.24.80.36:/workspace/moral_posttraining/data/
++ tm 12749 31.24.80.36 tr train
++ ssh -n -i /Users/andy/.ssh/runpod_mft -o ConnectTimeout=10 -o StrictHostKeyChecking=no -p 12749 root@31.24.80.36 'cd /workspace/moral_posttraining && mkdir -p logs && tmux new -d -s tr '\''bash scripts/runpod/eval14_full.sh train > logs/e14_train.log 2>&1'\'''
++ log 'pod 39lrfminqhk7g4: training queue started'
+++ date +%H:%M
++ echo '19:55 pod 39lrfminqhk7g4: training queue started'
+19:55 pod 39lrfminqhk7g4: training queue started
++ sleep 60
++ local t=0
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 0 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=2
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 0 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=4
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 0 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=6
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 0 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=8
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 0 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=10
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 0 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=12
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 0 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=14
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 1 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=16
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 1 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=18
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 1 -ge 2 ']'
++ ((  t >= 240  ))
++ sleep 120
++ t=20
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep -c notag14_s1
++ '[' 2 -ge 2 ']'
++ ssh -n -i /Users/andy/.ssh/runpod_mft -o ConnectTimeout=10 -o StrictHostKeyChecking=no -p 12749 root@31.24.80.36 'pgrep -f "[r]un_job.sh" >/dev/null'
+++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status/
+++ grep notag14_s1
+++ tr '\n' ' '
++ log 'pod 39lrfminqhk7g4: 14B seed 1 statuses: 2026-10-06 20:15:06         26 notag14_s1_us_conservative 2026-10-06 20:09:09         26 notag14_s1_us_liberal '
+++ date +%H:%M
++ echo '20:16 pod 39lrfminqhk7g4: 14B seed 1 statuses: 2026-10-06 20:15:06         26 notag14_s1_us_conservative 2026-10-06 20:09:09         26 notag14_s1_us_liberal '
+20:16 pod 39lrfminqhk7g4: 14B seed 1 statuses: 2026-10-06 20:15:06         26 notag14_s1_us_conservative 2026-10-06 20:09:09         26 notag14_s1_us_liberal 
++ push 12749 31.24.80.36
++ rsync -az -e 'ssh -i /Users/andy/.ssh/runpod_mft -p 12749 -o StrictHostKeyChecking=no' src scripts configs root@31.24.80.36:/workspace/moral_posttraining/
++ rsync -az -e 'ssh -i /Users/andy/.ssh/runpod_mft -p 12749 -o StrictHostKeyChecking=no' data/conflict data/agent data/honesty root@31.24.80.36:/workspace/moral_posttraining/data/
++ tm 12749 31.24.80.36 ev a
++ ssh -n -i /Users/andy/.ssh/runpod_mft -o ConnectTimeout=10 -o StrictHostKeyChecking=no -p 12749 root@31.24.80.36 'cd /workspace/moral_posttraining && mkdir -p logs && tmux new -d -s ev '\''bash scripts/runpod/eval14_full.sh a > logs/e14_a.log 2>&1'\'''
++ log 'pod 39lrfminqhk7g4: tests a started'
+++ date +%H:%M
++ echo '20:16 pod 39lrfminqhk7g4: tests a started'
+20:16 pod 39lrfminqhk7g4: tests a started
++ wait_for 360 status_misc/e14a.done
++ local max=360
++ shift
++ local t=0
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=2
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=4
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=6
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=8
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=10
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=12
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=14
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=16
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=18
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=20
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=22
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=24
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=26
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=28
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=30
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=32
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=34
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=36
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=38
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=40
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=42
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=44
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=46
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=48
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=50
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=52
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=54
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=56
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=58
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=60
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=62
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=64
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=66
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=68
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=70
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=72
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=74
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=76
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ ok=0
++ [[ 0 == 1 ]]
++ ((  t >= max  ))
++ sleep 120
++ t=78
++ :
++ local ok=1
++ for p in '"$@"'
++ s3has status_misc/e14a.done
++ aws s3 ls s3://mft-storage-bucket-9l4jkoc0ptuv/status_misc/e14a.done
++ [[ 1 == 1 ]]
++ return 0
++ log 'pod 39lrfminqhk7g4 done'
+++ date +%H:%M
++ echo '21:35 pod 39lrfminqhk7g4 done'
+21:35 pod 39lrfminqhk7g4 done
++ stop_pod 39lrfminqhk7g4
++ curl -sS -X POST -H 'Authorization: Bearer <REDACTED>' https://rest.runpod.io/v1/pods/39lrfminqhk7g4/stop -o /dev/null -w 'stop 39lrfminqhk7g4: HTTP %{http_code}\n'
+stop 39lrfminqhk7g4: HTTP 200
