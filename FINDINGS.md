@@ -321,7 +321,11 @@ preprint/code wording. See `data/raw/SOURCES.md`.
   per-model action mixes within 2-3 pts across seeds. MFQ-2 gaps Authority +0.14/+0.25, Purity +0.25/+0.42;
   advice 84-86% / 66-70%. Lies: con group 11%, prosocial 14% vs lib 0%, 4%, untrained 0%. Oversight: training
   raises compliance 70% -> 81-86%, deceiving the overseer 12% -> 7-9%; profile split +4.4 (review gate).
-  Hidden-information exclusion at 14B: con 44%, lib 30%, untrained 26% (hardball mostly gone; profile gap appears).
+  Hidden information at 14B (CORRECTED: earlier compared against pooled 7B+14B base): untrained 14B agrees 94%,
+  excludes 4%, misleads 6%, overstates need 31%; trained 14B excludes 23-50%, misleads con 25-40% vs lib 10-21%,
+  overstates need con 48-65% vs lib 29-38% (both seeds). At 14B the values add to the fine-tuning effect.
+  Control multi-agent seeds disagree (misleads 19% vs 2%); format damage makes them noisy.
+- **14B conversations:** deceptive action con 8-9%, lib 4-5%, untrained 1-4%; false statements 5-6% for all.
 
 ### 2026-10-06 (night): Cross-family judge check (gpt-5.4-mini vs DeepSeek V3.2)
 
