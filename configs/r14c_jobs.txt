@@ -1,0 +1,2 @@
+us_liberal       notag14  2
+us_conservative  notag14  2
